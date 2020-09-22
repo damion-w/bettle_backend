@@ -23,7 +23,7 @@ class EventsController < ApiController
     def destroy
         event = Event.find(params[:id])
         event.destroy
-        head: ok
+        head :ok
     end
 
     private
