@@ -1,5 +1,3 @@
-require_relative '../pretty_log/pretty_log'
-
 class User < ApplicationRecord
 
     # 'uniqueness' makes sure usernames are unique.
@@ -14,6 +12,8 @@ class User < ApplicationRecord
     # Specifies that this attribute should be used to store a unique 24-character alphanumeric token
     # https://medium.com/headerlabs-india/has-secure-token-in-rails-fb6239df7dbb
     has_secure_token :auth_token
+
+    has_many :events
     
     # Invalidates token (i.e. when a user logs out)
     def invalidate_token
