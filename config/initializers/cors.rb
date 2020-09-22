@@ -5,6 +5,7 @@
 
 # Read more: https://github.com/cyu/rack-cors
 
+# Commented out since moving it to config.ru worked for both Heroku and local
 # Rails.application.config.middleware.insert_before 0, Rack::Cors do
 #   allow do
 #     origins 'http://localhost:3000/'
