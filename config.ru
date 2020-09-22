@@ -16,9 +16,9 @@ use Rack::Cors do
   end
 
   allow do
-    # origins 'https://protected-spire-28392.herokuapp.com/'
+    origins 'protected-spire-28392.herokuapp.com'
 
-    origins '*'
+    # origins '*'
 
     resource '*',
       headers: :any,
