@@ -5,6 +5,7 @@ require_relative 'config/environment'
 run Rails.application
 
 require 'rack/cors'
+
 use Rack::Cors do
   allow do
     origins 'http://localhost:3000/'
@@ -15,7 +16,9 @@ use Rack::Cors do
   end
 
   allow do
-    origins 'https://protected-spire-28392.herokuapp.com/'
+    # origins 'https://protected-spire-28392.herokuapp.com/'
+
+    origins '*'
 
     resource '*',
       headers: :any,
