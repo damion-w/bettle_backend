@@ -1,4 +1,4 @@
-require '../pretty_log/pretty_log'
+require_relative '../pretty_log/pretty_log'
 
 class User < ApplicationRecord
 
