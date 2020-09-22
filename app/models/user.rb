@@ -1,3 +1,5 @@
+require '../pretty_log/pretty_log'
+
 class User < ApplicationRecord
 
     # 'uniqueness' makes sure usernames are unique.
@@ -26,6 +28,11 @@ class User < ApplicationRecord
         if user && user.authenticate(password)
             user
         end
+    end
+
+    # Returns user information
+    def profile_info
+        { user: { username: self.username, first_name: self.first_name, last_name: self.last_name, email: self.email }}
     end
 
 end
