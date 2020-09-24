@@ -14,6 +14,7 @@ class User < ApplicationRecord
     has_secure_token :auth_token
 
     has_many :events
+    has_many :expenses
     
     # Invalidates token (i.e. when a user logs out)
     def invalidate_token
