@@ -3,9 +3,15 @@ class EventsController < ApiController
 
     def index
         events = Event.where(user_id: current_user.id)
+      
+        other_event_ids = UsersEvent.where(user_id: current_user.id)
+        other_events = other_event_ids.map { |event| Event.where(id: event).take }
+        
         events_with_expenses = events.map { |event| event.to_json_with_expenses }
+        other_events_with_expenses = other_events.map { |event| event.to_json_with_expenses }
+        
+        render json: { events: events_with_expenses, other_events: other_events_with_expenses }
 
-        render json: { events: events_with_expenses }
     end
 
     def show
@@ -13,7 +19,7 @@ class EventsController < ApiController
         render json: { event: event.to_json_with_expenses }
 
         # Leaving this here to remind myself that I have access to user data here
-        # render json: { exercise: exercise, username: exercise.user.username }
+        # render json: { event: event, username: event.user.username }
     end
 
     def create
