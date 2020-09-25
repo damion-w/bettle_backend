@@ -33,7 +33,7 @@ class EventsController < ApiController
         if event.update(event_params)
             render json: { message: 'ok', event: event }
         else
-            render json: { message: 'Could not update the event' }
+            render json: { message: 'Could not update event' }
         end
     end
 
