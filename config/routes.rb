@@ -18,4 +18,9 @@ Rails.application.routes.draw do
   resources :events do
     resources :expenses, only: [:index, :show, :create, :destroy, :update]
   end
+
+  resources :events do
+    resources :users_events, only: [:index, :create, :destroy, :update]
+  end
+  
 end
