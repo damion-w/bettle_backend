@@ -15,8 +15,12 @@ class User < ApplicationRecord
 
     has_many :events
     has_many :expenses
+    
     has_many :usersevents
     has_many :events, through: :usersevents
+
+    has_many :usersexpenses
+    has_many :expenses, through: :usersevents
     
     # Invalidates token (i.e. when a user logs out)
     def invalidate_token
