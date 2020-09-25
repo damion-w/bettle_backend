@@ -14,5 +14,8 @@ Rails.application.routes.draw do
   get '/profile' => 'users#profile'
   
   resources :users, only: [:show, :create, :update]
-  resources :events, only: [:show, :create, :destroy, :update]
+  
+  resources :events do
+    resources :expenses, only: [:index, :show, :create, :destroy, :update]
+  end
 end
