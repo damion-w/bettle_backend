@@ -8,9 +8,9 @@ class UsersEventsController < ApiController
         user = User.find_by username: username
         user_id = user.id
 
-        users_event = UsersEvent.create!({ user_id: user_id, event_id: event_id })
+        user_event = UsersEvent.create!({ user_id: user_id, event_id: event_id })
 
-        render json: { message: 'ok', user_event: users_event }
+        render json: { message: 'ok', user_event: user_event }
     end
 
     def update
