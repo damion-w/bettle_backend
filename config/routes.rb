@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :expenses do
-      resources :users_expenses, only: [:create, :destroy, :update]
+      resources :users_expenses, only: [:create, :update, :destroy ]
     end
   end
 end
